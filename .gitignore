@@ -1,0 +1,15 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets and local settings
+.env
+.env.*
+.claude/
+
+# Excel and Tableau lock/recovery files, packaged copies
+~$*
+*.twbr
+*.zip
