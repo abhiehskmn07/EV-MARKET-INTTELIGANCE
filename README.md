@@ -10,7 +10,7 @@ The dashboard and story are published to Tableau Public and embedded in a Flask 
 | --- | --- |
 | **Demo Link** | [PUBLIC_DEMO_URL_PENDING] |
 | **GitHub Link** | [GITHUB_REPOSITORY_URL_PENDING] |
-| Local development URL | http://localhost:5001 (your computer only, not a public demo) |
+| website URL | https://ev-market-intteligance.onrender.com |
 | Tableau Dashboard | https://public.tableau.com/views/EVMARKET-STORY_17932562476300/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link |
 | Tableau Story | https://public.tableau.com/views/EVMARKET-STORY1/Story1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link |
 
@@ -77,5 +77,5 @@ venv\Scripts\python.exe -m pip install -r ev-market-intelligence/requirements.tx
 venv\Scripts\python.exe ev-market-intelligence/app.py
 ```
 
-Then open http://127.0.0.1:5001. The embedded views load from Tableau Public, so the computer needs internet access
+Then open https://ev-market-intteligance.onrender.com The embedded views load from Tableau Public, so the computer needs internet access
 and both workbooks must stay public on the Tableau Public profile.
