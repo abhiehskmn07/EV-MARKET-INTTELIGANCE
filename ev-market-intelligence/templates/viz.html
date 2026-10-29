@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ heading }} · EV Market Intelligence{% endblock %}
+
+{% block head %}
+{% if src %}
+<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <div class="wrap wrap-wide">
+    <p class="kicker">{{ kicker }}</p>
+    <h1>{{ heading }}</h1>
+    <p>{{ intro }}</p>
+    {% if src %}
+    <div class="actions">
+      <a class="btn btn-ghost" href="{{ share_url }}" target="_blank" rel="noopener">Open on Tableau Public ↗</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<div class="wrap wrap-wide">
+  {% if src %}
+  <div class="viz-frame">
+    <tableau-viz id="viz" src="{{ src }}" toolbar="bottom" hide-tabs></tableau-viz>
+  </div>
+  <p class="viz-note muted" id="viz-note">Loaded live from Tableau Public. If nothing appears, check your internet
+    connection or open the view directly with the button above.</p>
+  <script>
+    document.getElementById("viz").addEventListener("vizloaderror", function () {
+      var note = document.getElementById("viz-note");
+      note.className = "viz-note viz-error";
+      note.textContent = "Tableau Public could not load this view. It may be offline, hidden or unpublished. "
+        + "Try again later or use the Open on Tableau Public button above.";
+    });
+  </script>
+  {% else %}
+  <div class="viz-frame viz-empty">
+    <h2>Tableau link not set</h2>
+    <p>Set <code>{{ setting }}</code> in <code>config.py</code> (or as an environment variable), then restart the app.</p>
+  </div>
+  {% endif %}
+
+  {% if scenes %}
+  <section class="scenes" aria-labelledby="scenes-title">
+    <h2 id="scenes-title">Scenes in this story</h2>
+    <ol>
+      {% for scene in scenes %}
+      <li><span class="card-num">{{ "%02d" % loop.index }}</span>{{ scene }}</li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+</div>
+{% endblock %}

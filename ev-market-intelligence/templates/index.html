@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Tableau · Flask · 100,000 vehicle records</p>
+    <h1>Electric Vehicle Market Intelligence Dashboard</h1>
+    <p class="lead">An interactive look at electric vehicle sales, manufacturers, vehicle categories, battery
+      technology, driving range, pricing and manufacturing countries, built in Tableau and published to
+      Tableau Public.</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('dashboard') }}">Open the dashboard</a>
+      <a class="btn btn-ghost" href="{{ url_for('story') }}">Read the story</a>
+    </div>
+    <div class="kpis" aria-label="Headline figures from the dashboard">
+      {% for kpi in kpis %}
+      <div class="kpi">
+        <span class="kpi-value">{{ kpi.value }}</span>
+        <span class="kpi-label">{{ kpi.label }}</span>
+        <span class="kpi-note">{{ kpi.note }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2 overview">
+    <div>
+      <p class="kicker">Project overview</p>
+      <h2>Why this analysis</h2>
+      <p class="muted">Electric vehicles now span everything from two-wheeler scooters to city buses. This project
+        brings one large EV dataset into a single dashboard and story so that a strategist, product planner or
+        sustainability researcher can see which segments sell, what drives price, how battery chemistries compare
+        and where vehicles are built.</p>
+    </div>
+    <div>
+      <h3>The analysis sets out to</h3>
+      <ul class="goals">
+        {% for goal in goals %}
+        <li>{{ goal }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The data</p>
+      <h2>One table, 100,000 vehicle records</h2>
+      <p>Each row is one vehicle record with its manufacturer, category, battery, range, performance, price,
+        ratings, CO2 saved and annual sales units. The dataset is synthetic, so the findings describe this
+        dataset rather than the real-world market. It has model years but no sales dates, so sales are compared
+        by model year rather than as calendar-year growth.</p>
+    </div>
+    <div class="stats">
+      {% for item in dataset %}
+      <div class="stat"><span class="stat-value">{{ item.value }}</span><span class="stat-label">{{ item.label }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Inside the dashboard</p>
+      <h2>Eight views on one page</h2>
+      <p>Each view answers one question about the market. All of them use the same extract of the dataset.</p>
+    </div>
+    <div class="grid grid-3">
+      {% for v in visuals %}
+      <article class="card">
+        <span class="tag">{{ v.chart }}</span>
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="actions section-cta">
+      <a class="btn" href="{{ url_for('dashboard') }}">Explore the dashboard</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What the data shows</p>
+      <h2>Key findings</h2>
+      <p>Every figure here was calculated from the dataset and matches the published views.</p>
+    </div>
+    <ul class="findings grid grid-2">
+      {% for f in findings %}
+      <li><h3>{{ f.title }}</h3><p>{{ f.text }}</p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The story</p>
+      <h2>Nine scenes</h2>
+      <p>The Tableau story walks through the market one question at a time.</p>
+    </div>
+    <ol class="scene-list">
+      {% for scene in scenes %}
+      <li><span class="card-num">{{ "%02d" % loop.index }}</span>{{ scene }}</li>
+      {% endfor %}
+    </ol>
+    <div class="actions section-cta">
+      <a class="btn" href="{{ url_for('story') }}">Read the story</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,284 @@
+/* EV Market Intelligence: dark navy, white and green. */
+:root {
+  --navy-950: #061423;
+  --navy-900: #0b1f33;
+  --navy-800: #12304d;
+  --navy-700: #1b4266;
+  --green-500: #22c55e;
+  --green-400: #34d399;
+  --green-100: #dcfce7;
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --line: #e2e8f0;
+  --surface: #ffffff;
+  --page: #f4f7fa;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 8px 24px rgba(15, 23, 42, .06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--page);
+}
+
+a { color: var(--navy-700); }
+a:hover { color: var(--green-500); }
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; letter-spacing: -.01em; }
+h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 800; }
+h2 { font-size: clamp(1.35rem, 2.6vw, 1.8rem); font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0 0 1em; }
+
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.wrap-wide { width: min(1480px, 100% - 32px); }
+.muted { color: var(--ink-soft); }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--navy-900);
+  color: #fff;
+  border-bottom: 3px solid var(--green-500);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.brand:hover { color: #fff; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--green-500);
+  color: var(--navy-900);
+}
+.brand-accent { color: var(--green-400); }
+.nav { display: flex; gap: 4px; }
+.nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.nav a:hover { color: #fff; background: var(--navy-800); }
+.nav a[aria-current="page"] { color: var(--navy-900); background: var(--green-400); }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: var(--green-500);
+  color: var(--navy-950);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--green-500);
+}
+.btn:hover { background: var(--green-400); border-color: var(--green-400); color: var(--navy-950); }
+.btn-ghost { background: transparent; color: inherit; border-color: currentColor; }
+.btn-ghost:hover { background: rgba(255, 255, 255, .08); color: inherit; border-color: var(--green-400); }
+
+/* Hero and page heads */
+.hero, .page-head {
+  background:
+    radial-gradient(ellipse at 85% 0%, rgba(52, 211, 153, .22), transparent 55%),
+    linear-gradient(160deg, var(--navy-900), var(--navy-950));
+  color: #fff;
+}
+.hero { padding: 72px 0 64px; }
+.page-head { padding: 40px 0 32px; }
+.hero p, .page-head p { color: #cbd5e1; max-width: 70ch; }
+.hero .lead { font-size: 1.15rem; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--green-400) !important;
+  margin-bottom: .6em;
+}
+
+/* KPI strip */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+.kpi {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.kpi-value { display: block; font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; color: #fff; }
+.kpi-label { display: block; font-size: .9rem; color: #cbd5e1; }
+.kpi-note { display: block; font-size: .78rem; color: #94a3b8; margin-top: 2px; }
+
+/* Sections */
+.section { padding: 56px 0; }
+.section-alt { background: var(--surface); border-block: 1px solid var(--line); }
+.section-head { max-width: 72ch; margin-bottom: 28px; }
+.section-head p { color: var(--ink-soft); }
+
+.grid { display: grid; gap: 16px; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.section-alt .card { background: var(--page); box-shadow: none; }
+.card p { color: var(--ink-soft); margin: 0; font-size: .95rem; }
+.card-num { font-weight: 800; color: var(--green-500); margin-right: 10px; font-variant-numeric: tabular-nums; }
+.tag {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--navy-700);
+  background: var(--green-100);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+}
+
+.findings { list-style: none; padding: 0; margin: 0; }
+.findings li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green-500);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.findings h3 { margin-bottom: .35em; }
+.findings p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+
+.overview { align-items: start; gap: 40px; }
+.goals { margin: 0; padding-left: 1.2em; color: var(--ink-soft); }
+.goals li { margin-bottom: .4em; }
+.goals li::marker { color: var(--green-500); }
+
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.stat { background: var(--page); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.stat-value { display: block; font-size: 1.5rem; font-weight: 800; color: var(--navy-900); }
+.stat-label { display: block; font-size: .88rem; color: var(--ink-soft); }
+
+.section-cta { margin-top: 24px; }
+
+.scene-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.scene-list li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--navy-900); color: #fff; font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td code, p code { font-size: .85em; background: #eef2f6; padding: 1px 6px; border-radius: 6px; }
+
+/* Embedded Tableau views */
+.viz-frame {
+  margin: 28px 0 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  overflow-x: auto;
+}
+/* The published views use Tableau's "Automatic" size, so they fill whatever space they get.
+   Give them a tall frame so the KPI row and labels are not squeezed. */
+.viz-frame tableau-viz { display: block; width: 100%; height: clamp(720px, 88vh, 1100px); }
+.viz-empty { padding: 48px 24px; text-align: center; }
+.viz-note { font-size: .88rem; margin-bottom: 32px; }
+.viz-error { color: #b91c1c; font-weight: 600; }
+
+.scenes { margin: 16px 0 56px; }
+.scenes ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.scenes li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer { background: var(--navy-950); color: #e2e8f0; padding: 36px 0; border-top: 3px solid var(--green-500); }
+.site-footer .muted { color: #94a3b8; font-size: .9rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
+.footer-title { font-weight: 700; color: #fff; }
+.footer-links { margin: 0; display: grid; gap: 12px; }
+.footer-links dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--green-400); font-weight: 700; }
+.footer-links dd { margin: 0; overflow-wrap: anywhere; }
+.footer-links a { color: #fff; }
+
+@media (max-width: 900px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3, .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .scenes ol, .scene-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .overview { grid-template-columns: 1fr; gap: 16px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 48px 0 40px; }
+  .section { padding: 40px 0; }
+  .grid-3, .grid-2, .scenes ol, .scene-list { grid-template-columns: 1fr; }
+  .nav a { padding: 6px 10px; }
+  .viz-frame { padding: 4px; }
+  .viz-frame tableau-viz { height: 640px; }
+}
