@@ -25,7 +25,7 @@ venv\Scripts\python.exe -m pip install -r requirements.txt
 venv\Scripts\python.exe app.py
 ```
 
-Open http://127.0.0.1:5001.
+Open https://ev-market-intteligance.onrender.com
 
 ## Settings
 
@@ -53,7 +53,7 @@ supplied.
 
 ## Deploy
 
-The site is **not deployed yet**; http://localhost:5001 only works on the computer running it. One way to host it
+The site is **not deployed yet**; https://ev-market-intteligance.onrender.com only works on the computer running it. One way to host it
 for free is Render, straight from the GitHub repository:
 
 1. Push the repository to GitHub.
