@@ -8,7 +8,7 @@ The dashboard and story are published to Tableau Public and embedded in a Flask 
 
 | | |
 | --- | --- |
-| **Demo Link** | [PUBLIC_DEMO_URL_PENDING] |
+| **Demo Link** | https://drive.google.com/file/d/1hxpA3kryYJ3ZehYD3uY0TkBxBax_wnwZ/view?usp=drivesdk |
 | **GitHub Link** | https://github.com/abhiehskmn07/EV-MARKET-INTTELIGANCE |
 | website URL | https://ev-market-intteligance.onrender.com |
 | Tableau Dashboard | https://public.tableau.com/views/EVMARKET-STORY_17932562476300/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link |
